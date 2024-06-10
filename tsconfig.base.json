@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rotate/state": ["libs/store/src/index.ts"]
+      "@rotate/state": ["libs/store/src/index.ts"],
+      "@titlerotator/models": ["libs/models/src/index.ts"],
+      "@titlerotator/services": ["libs/services/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
