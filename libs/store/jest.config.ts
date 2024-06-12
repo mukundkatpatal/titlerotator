@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'state',
+  displayName: 'store',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: '../../coverage/libs/store',

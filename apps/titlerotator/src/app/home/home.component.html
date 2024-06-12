@@ -3,7 +3,10 @@
     <mat-toolbar color="primary">
       <span>titlerotator</span>
     </mat-toolbar>
-    Myaan
+     <div *ngFor="let post of postData$ | async" class="grid-item">
+      
+      {{ post | json }}
+    </div>
     <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>

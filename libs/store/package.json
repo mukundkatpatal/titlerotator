@@ -1,5 +1,5 @@
 {
-  "name": "@rotate/state",
+  "name": "@titlerotator/store",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^18.0.0",
