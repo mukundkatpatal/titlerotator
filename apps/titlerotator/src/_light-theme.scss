@@ -1,12 +1,15 @@
 @use "sass:map";
 @use '@angular/material' as mat;
 
+$primary: mat.$azure-palette;
+$accent: mat.$blue-palette;
+
 $theme: mat.define-theme(
   (
     color: (
       theme-type: 'light',
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
+      primary: $primary,
+      tertiary: $accent,
       use-system-variables: true,
     ),
     density: (

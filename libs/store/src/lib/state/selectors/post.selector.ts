@@ -12,3 +12,8 @@ export const selected = createSelector(
   selectPostState,
   (state: PostState) => state.selected
 );
+
+export const loading = createSelector(
+  selectPostState,
+  (state: PostState) => state.loading
+);
