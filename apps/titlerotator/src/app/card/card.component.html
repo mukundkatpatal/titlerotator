@@ -1,1 +1,7 @@
-<p>card works!</p>
+<mat-card style="width: 95%; min-height: 95%;" (click)="onClick()" mat-ripple [class.selected]="(selected$ | async) === post.id">
+  <mat-card-title>{{ key }}
+  </mat-card-title>
+  <mat-card-content>
+    <div class="text-content">{{value}}</div>
+  </mat-card-content>
+</mat-card>

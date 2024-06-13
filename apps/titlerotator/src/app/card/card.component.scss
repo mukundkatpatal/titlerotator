@@ -1,0 +1,29 @@
+mat-card {
+  width: 95%;
+  min-height: 95%;
+  .mat-mdc-card-title {
+    text-align: center;
+    text-transform: capitalize;
+    padding: 5px;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: var(--sys-secondary-container);
+  }
+}
+
+.selected {
+  background-color: var(--sys-secondary-container);
+}
+  
+.text-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 90%;
+}

@@ -9,10 +9,6 @@ $theme: mat.define-theme(
       tertiary: mat.$blue-palette,
       use-system-variables: true,
     ),
-    typography: (
-      brand-family: 'Helvetica Neue',
-      bold-weight: 900,
-    ),
     density: (
       scale: -1,
     ),

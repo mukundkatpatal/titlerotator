@@ -1,12 +1,20 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <span>titlerotator</span>
-    </mat-toolbar>
-     <div *ngFor="let post of postData$ | async" class="grid-item">
+    <mat-toolbar color="secondary">
+      <div style="display: flex;width: 100%;">
+        <span style="width: 45%;">Title Rotator</span>
+        <span style="width: 55%;">Post {{ selected$ | async}} selected</span>
+      </div>
       
-      {{ post | json }}
+    </mat-toolbar>
+    <div style="padding: 10px;" >
+      <mat-grid-list cols="10" rowHeight="1:1" >
+        @for (post of postData$ | async; track post.id) {
+          <mat-grid-tile  class="grid-item">
+            <app-card [post]="post" style="width: 90%; height:90%; display: flex;"></app-card>
+          </mat-grid-tile>
+        }
+      </mat-grid-list>
     </div>
-    <!-- Add Content Here -->
   </mat-sidenav-content>
 </mat-sidenav-container>

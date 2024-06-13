@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { Action, ActionReducer, createReducer, on } from '@ngrx/store';
 import { loadPostsFailure, loadPostsSuccess, setCurrentSelected } from '../actions/posts.action';
 import { PostState } from '@titlerotator/models';
 
@@ -9,21 +9,21 @@ export const initialState: PostState = {
   selected: 0
 };
 
-export const postReducer = createReducer(
+export const postReducer = createReducer<PostState, Action, ActionReducer<PostState, Action>>(
   initialState,
-  on(loadPostsSuccess, (state, { Posts: posts }) => ({
+  on(loadPostsSuccess, (state, { Posts: posts }): PostState => ({
     ...state,
     posts,
     loading: false,
     error: null
   })),
-  on(loadPostsFailure, (state, { error }) => ({
+  on(loadPostsFailure, (state, { error }): PostState => ({
     ...state,
     loading: false,
     error
   })),
-  on(setCurrentSelected, (state, { id }) => ({
+  on(setCurrentSelected, (state, { id }): PostState => ({
     ...state,
-    currentSelected: id
+    selected: id
   }))
 );

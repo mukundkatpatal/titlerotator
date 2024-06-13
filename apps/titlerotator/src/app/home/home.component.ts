@@ -1,16 +1,16 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe, CommonModule } from '@angular/common';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { IPost } from '@titlerotator/models';
 import { loadPosts, selectPosts, selected } from '@titlerotator/store';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-home',
@@ -20,19 +20,19 @@ import { loadPosts, selectPosts, selected } from '@titlerotator/store';
   imports: [
     CommonModule,
     MatToolbarModule,
-    MatButtonModule,
     MatSidenavModule,
-    MatListModule,
-    MatIconModule,
+    MatGridListModule,
     AsyncPipe,
-  ]
+    CardComponent
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
-  postData$: Observable<IPost[]> = this.store.select(selectPosts)
-  selected$: Observable<number> = this.store.select(selected)
+  postData$: Observable<IPost[]> = this.store.select(selectPosts);
+  selected$: Observable<number> = this.store.select(selected);
     
-  constructor(private store: Store) { }
+  constructor(private readonly store: Store) { }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
