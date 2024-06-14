@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+
 import { AsyncPipe, CommonModule } from '@angular/common';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -8,7 +8,6 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { IPost } from '@titlerotator/models';
 import { loadPosts, loading, selectPosts, selected } from '@titlerotator/store';
@@ -31,18 +30,11 @@ import { CardComponent } from '../card/card.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
-  private breakpointObserver = inject(BreakpointObserver);
   postData$: Observable<IPost[]> = this.store.select(selectPosts);
   selected$: Observable<number> = this.store.select(selected);
   loading$: Observable<boolean> = this.store.select(loading);
     
   constructor(private readonly store: Store) { }
-
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
 
   public ngOnInit(): void {
     this.store.dispatch(loadPosts());
