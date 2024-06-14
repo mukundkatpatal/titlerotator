@@ -50,15 +50,15 @@ This will ensure that session cookies are marked as HTTP-Only and Secure to prev
 2. immutable: Objects whose properties can not be updated after the object is created
 3. Examples: Symbol, Numbers, strings, booleans, null, and undefined.
 4. How does immutability help in software world:
-   ### Concurrency and Parallelism: Immutable data structures are inherently thread-safe because they cannot be modified after creation. This makes concurrent and parallel programming much simpler since you don't have to worry about simultaneous modifications causing unexpected behavior or data corruption.This helps in single page applications to make sure how the data has been changing across application
+a. Concurrency and Parallelism: Immutable data structures are inherently thread-safe because they cannot be modified after creation. This makes concurrent and parallel programming much simpler since you don't have to worry about simultaneous modifications causing unexpected behavior or data corruption.This helps in single page applications to make sure how the data has been changing across application
 
-   ### Predictability and Debugging: With immutable data, you can be sure that once a piece of data is created, it won't change unexpectedly throughout your program. This makes your code easier to reason about, debug, and understand, as you don't have to track down unexpected mutations.
+b. Predictability and Debugging: With immutable data, you can be sure that once a piece of data is created, it won't change unexpectedly throughout your program. This makes your code easier to reason about, debug, and understand, as you don't have to track down unexpected mutations.
 
-   ### Functional Programming: Immutability is a core principle of functional programming, which emphasizes the use of pure functions and immutable data structures. Immutable data enables functional programming techniques like referential transparency, where a function call with the same arguments always produces the same result, aiding in reasoning about program behavior and facilitating optimization.
+c. Functional Programming: Immutability is a core principle of functional programming, which emphasizes the use of pure functions and immutable data structures. Immutable data enables functional programming techniques like referential transparency, where a function call with the same arguments always produces the same result, aiding in reasoning about program behavior and facilitating optimization.
 
-   ### State Management: Immutable data structures are often used in state management libraries for applications, particularly in front-end development. By maintaining an immutable state, you can easily track changes, optimize rendering, and implement features like time-travel debugging. ngrx library we use in angular is a prime example of this.
+d. State Management: Immutable data structures are often used in state management libraries for applications, particularly in front-end development. By maintaining an immutable state, you can easily track changes, optimize rendering, and implement features like time-travel debugging. ngrx library we use in angular is a prime example of this.
 
-   ### Caching and Memoization: Immutable data can be cached and reused more effectively since you can be sure that the data won't change. This can lead to performance improvements, especially in scenarios where expensive computations can be memoized based on input arguments.
+e. Caching and Memoization: Immutable data can be cached and reused more effectively since you can be sure that the data won't change. This can lead to performance improvements, especially in scenarios where expensive computations can be memoized based on input arguments.
 
 Disadvantages can be categorized into two sections.
 1. Memory and performance
