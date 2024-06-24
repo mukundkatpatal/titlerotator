@@ -37,7 +37,7 @@ jobs:
  
       # Build angular
       - name: Build Angular Project
-        run: npx nx build titlerotator
+        run: npx nx build titlerotator --prod
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
@@ -45,3 +45,11 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/apps/titlerotator
+        
+      # deploy to github pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/apps/titlerotator
+          publish_branch: gh-pages
